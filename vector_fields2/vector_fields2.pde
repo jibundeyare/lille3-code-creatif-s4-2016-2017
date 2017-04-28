@@ -1,11 +1,11 @@
 // vector_fields2
 
-PImage img;
+PImage img1;
 PImage img2;
 int d = 30;
 
-Particule p = new Particule();
-Particule p2 = new Particule();
+Particle p1 = new Particle();
+Particle p2 = new Particle();
 
 int rows = 100;
 int columns = 100;
@@ -18,8 +18,8 @@ int mul = 1;
 void setup() {
   size(800, 600);
   // blendMode(ADD);
-  img = loadImage("particule-rouge.png");
-  img2 = loadImage("particule-bleue.png");
+  img1 = loadImage("particle-red.png");
+  img2 = loadImage("particle-blue.png");
   imageMode(CENTER);
 
   cellWidth = (float) width / columns;
@@ -31,7 +31,7 @@ void setup() {
 }
 
 void draw() {
-  image(img, p.position.x, p.position.y, d, d);
+  image(img1, p1.position.x, p1.position.y, d, d);
   image(img2, p2.position.x, p2.position.y, d, d);
 
   float left;
@@ -46,10 +46,10 @@ void draw() {
       top = j * cellHeight;
       bottom = j * cellHeight + cellHeight;
 
-      if (p.position.x >= left && p.position.x < right
-        && p.position.y >= top && p.position.y < bottom) {
-        p.update(grille[i][j]);
-        p.limite();
+      if (p1.position.x >= left && p1.position.x < right
+        && p1.position.y >= top && p1.position.y < bottom) {
+        p1.update(grille[i][j]);
+        p1.limite();
       }
 
       if (p2.position.x >= left && p2.position.x < right

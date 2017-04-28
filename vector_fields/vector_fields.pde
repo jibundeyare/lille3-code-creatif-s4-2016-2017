@@ -1,30 +1,30 @@
 // vector_fields
 
-PImage img;
+PImage img1;
 PImage img2;
 int d = 15;
 
 float facteurVelociteCirculaire = 15;
 float facteurAccelerationCirculaire = 15;
 
-Particule p = new Particule();
-Particule p2 = new Particule();
+Particle p1 = new Particle();
+Particle p2 = new Particle();
 
 void setup() {
   size(800, 600);
   blendMode(ADD);
-  img = loadImage("particule-rouge.png");
-  img2 = loadImage("particule-bleue.png");
+  img1 = loadImage("particle-red.png");
+  img2 = loadImage("particle-blue.png");
   imageMode(CENTER);
   background(0);
 }
 
 void draw() {
-  image(img, p.position.x, p.position.y, d, d);
+  image(img1, p1.position.x, p1.position.y, d, d);
   image(img2, p2.position.x, p2.position.y, d, d);
-  p.update();
+  p1.update();
   p2.update();
-  p.limite();
+  p1.limite();
   p2.limite();
 }
 
@@ -45,6 +45,6 @@ void keyPressed() {
 
   println("facteurAccelerationCirculaire " + facteurAccelerationCirculaire);
 
-  p.reset();
+  p1.reset();
   p2.reset();
 }

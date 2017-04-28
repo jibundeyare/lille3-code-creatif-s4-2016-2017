@@ -1,21 +1,21 @@
 PGraphics pg;
 
-// rouge
+// red
 color c1 = color(255, 1, 1, 1);
 
 // orange
 color c2 = color(255, 127, 1, 4);
 
-// bleu
+// blue
 // color c1 = color(1, 1, 255, 1);
 
-// vert
+// green
 // color c2 = color(1, 255, 1, 4);
 
-// jaune
+// yellow
 color c3 = color(255, 255, 1, 20);
 
-// blanc
+// white
 color c4 = color(255, 255, 255);
 
 void setup() {
@@ -40,10 +40,11 @@ void setup() {
   }
   pg.endDraw();
 
-  pg.save("particule.png");
+  pg.save("particle.png");
 }
 
 void draw() {
   background(255);
   image(pg, 0, 0);
 }
+
