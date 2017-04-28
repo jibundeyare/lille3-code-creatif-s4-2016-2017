@@ -1,5 +1,3 @@
-// @todo translate() à la balle de kalachnikov
-
 import peasy.*;
 import peasy.org.apache.commons.math.*;
 import peasy.org.apache.commons.math.geometry.*;
@@ -69,7 +67,7 @@ void draw() {
 }
 
 void pyramid(float base, float top) {
-  // base carrée
+  // square base
   beginShape();
   vertex(-base, -base, 0);
   vertex(base, -base, 0);
@@ -105,3 +103,4 @@ void pyramid(float base, float top) {
   vertex(0, 0, top);
   endShape();
 }
+

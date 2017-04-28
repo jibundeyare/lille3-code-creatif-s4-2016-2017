@@ -1,37 +1,32 @@
-class Particule {
+class Particle {
   PVector position = new PVector();
   PVector velocite = new PVector();
   PVector acceleration = new PVector();
-  float vitesseMax = 20;
-  float velociteCirculaire;
-  float accelerationCirculaire;
+  float maxSpeed = 20;
 
-  Particule() {
+  Particle() {
     position.x = random(0, width);
     position.y = random(0, height);
     velocite.x = random(-10, 10);
     velocite.y = random(-10, 10);
     acceleration.x = random(-10, 10);
     acceleration.y = random(-10, 10);
-
-    reset();
   }
 
-  void reset() {
-    velociteCirculaire = random(-HALF_PI, HALF_PI) / facteurVelociteCirculaire;
-    accelerationCirculaire = random(-HALF_PI, HALF_PI) / facteurAccelerationCirculaire;
+  void update(PVector acceleration) {
+    this.acceleration = acceleration;
+    velocite.add(acceleration);
+    velocite.limit(maxSpeed);
+    position.add(velocite);
   }
 
   void update() {
-    acceleration.rotate(velociteCirculaire);
-    velocite.add(acceleration);
-    velocite.limit(vitesseMax);
-    position.add(velocite);
+    update(this.acceleration);
   }
 
   void limite() {
     if (position.x < 0) {
-      position.x = width;
+      position.x = width - 1;
     }
 
     if (position.x > width) {
@@ -39,12 +34,12 @@ class Particule {
     }
 
     if (position.y < 0) {
-      position.y = height;
+      position.y = height - 1;
     }
 
     if (position.y > height) {
       position.y = 0;
     }
-
   }
 }
+

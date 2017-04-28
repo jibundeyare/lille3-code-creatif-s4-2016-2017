@@ -10,13 +10,14 @@ int z;
 
 void setup() {
   size(1024, 768, P3D);
+
   cam = new PeasyCam(this, 500);
   cam.setMinimumDistance(0);
   cam.setMaximumDistance(1000);
 
   blendMode(ADD);
 
-  /* hint(ENABLE_STROKE_PERSPECTIVE); */
+  //hint(ENABLE_STROKE_PERSPECTIVE);
   hint(DISABLE_DEPTH_MASK);
 }
 

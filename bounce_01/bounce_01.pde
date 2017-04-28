@@ -10,34 +10,34 @@ int borderLeft;
 int borderRight;
 
 void setup() {
-	// préparation de la scène
-	size(800, 600);
-	x = round(random(0, width));
-	y = round(random(0, height));
+  size(800, 600);
 
-	borderTop = 0 + shapeHeight / 2;
-	borderBottom = height - shapeHeight / 2;
-	borderLeft = 0 + shapeWidth / 2;
-	borderRight = width - shapeWidth / 2;
+  x = round(random(0, width));
+  y = round(random(0, height));
 
-	noStroke();
-	fill(116, 30, 116);
+  borderTop = 0 + shapeHeight / 2;
+  borderBottom = height - shapeHeight / 2;
+  borderLeft = 0 + shapeWidth / 2;
+  borderRight = width - shapeWidth / 2;
 
-	background(237, 216, 22);
+  noStroke();
+  fill(116, 30, 116);
+
+  background(237, 216, 22);
 }
 
 void draw() {
-	// peindre la scène
-	if (x >= borderRight || x <= borderLeft) {
-		velocityX = velocityX * -1;
-	}
+  if (x >= borderRight || x <= borderLeft) {
+    velocityX = velocityX * -1;
+  }
 
-	if (y >= borderBottom || y <= borderTop) {
-		velocityY = velocityY * -1;
-	}
+  if (y >= borderBottom || y <= borderTop) {
+    velocityY = velocityY * -1;
+  }
 
-	x = x + velocityX;
-	y = y + velocityY;
+  x = x + velocityX;
+  y = y + velocityY;
 
-	ellipse(x, y, shapeWidth, shapeHeight);
+  ellipse(x, y, shapeWidth, shapeHeight);
 }
+

@@ -3,26 +3,27 @@ Particle[] p = new Particle[particles];
 int d = 10;
 
 void setup() {
-	size(1000, 800, P3D);
+  size(1000, 800, P3D);
 
-	for (int i = 0; i < particles; i++) {
-		p[i] = new Particle();
-	}
+  for (int i = 0; i < particles; i++) {
+    p[i] = new Particle();
+  }
 }
 
 void draw() {
-	background(0);
+  background(0);
 
-	noStroke();
-	fill(255);
+  noStroke();
+  fill(255);
 
-	for (int i = 0; i < particles; i++) {
-		p[i].update();
-		p[i].constrain();
+  for (int i = 0; i < particles; i++) {
+    p[i].update();
+    p[i].constrain();
 
-		pushMatrix();
-		translate(p[i].pos.x, p[i].pos.y);
-		ellipse(0, 0, d, d);
-		popMatrix();
-	}
+    pushMatrix();
+    translate(p[i].pos.x, p[i].pos.y);
+    ellipse(0, 0, d, d);
+    popMatrix();
+  }
 }
+

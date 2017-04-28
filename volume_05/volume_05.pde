@@ -25,7 +25,7 @@ void draw() {
   base = 50 * frameCount * growthSpeed;
   top = 100 * frameCount * growthSpeed;
 
-  // base carrée
+  // square base
   beginShape();
   vertex(-base, -base, 0);
   vertex(base, -base, 0);
@@ -61,3 +61,4 @@ void draw() {
   vertex(0, 0, top);
   endShape();
 }
+

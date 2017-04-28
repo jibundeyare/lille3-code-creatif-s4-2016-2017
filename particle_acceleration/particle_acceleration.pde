@@ -5,42 +5,43 @@ boolean attract = false;
 PVector mousePos;
 
 void setup() {
-	size(1000, 800, P3D);
+  size(1000, 800, P3D);
 
-	blendMode(ADD);
+  blendMode(ADD);
 
-	for (int i = 0; i < particles; i++) {
-		p[i] = new Particle();
-	}
+  for (int i = 0; i < particles; i++) {
+    p[i] = new Particle();
+  }
 }
 
 void draw() {
-	background(0);
+  background(0);
 
-	noStroke();
+  noStroke();
 
-	for (int i = 0; i < particles; i++) {
-		if (attract) {
-			mousePos = new PVector(mouseX, mouseY);
-			p[i].acc = mousePos.sub(p[i].pos);
-		}
+  for (int i = 0; i < particles; i++) {
+    if (attract) {
+      mousePos = new PVector(mouseX, mouseY);
+      p[i].acc = mousePos.sub(p[i].pos);
+    }
 
-		p[i].update();
-		p[i].constrain();
+    p[i].update();
+    p[i].constrain();
 
-		if (p[i].ttl == 0) {
-			p[i] = new Particle();
-		}
+    if (p[i].ttl == 0) {
+      p[i] = new Particle();
+    }
 
-		fill(p[i].ttl, 50, 50);
+    fill(p[i].ttl, 50, 50);
 
-		pushMatrix();
-		translate(p[i].pos.x, p[i].pos.y);
-		ellipse(0, 0, d, d);
-		popMatrix();
-	}
+    pushMatrix();
+    translate(p[i].pos.x, p[i].pos.y);
+    ellipse(0, 0, d, d);
+    popMatrix();
+  }
 }
 
 void mousePressed() {
-	attract = !attract;
+  attract = !attract;
 }
+
